@@ -1,5 +1,5 @@
 body {
-    font-family: 'Ovo', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
     padding-top: 65px;
 }
 .background-img {
@@ -7,16 +7,20 @@ body {
     opacity: .9;
 }
 .navbar-main {
-    width: 100%;
-    position: fixed;
     display: flex;
+    width: 100%;
     align-items: center;
-    background-color: #161D6F;
+    position: fixed;
     justify-content: space-between;
+    background-color: #161D6F;
     left: 0px;
     right: 0px;
     top: 0px;
     z-index: 1000;
+}
+
+.html-page-list {
+    display: flex;
 }
 .text-overlay {
     position: absolute;
@@ -48,58 +52,113 @@ body {
         transform: translateY(0);
     }
 }
-.main-header {
-    display: flex;
-    align-items: end;
-    gap: 2px;
-    margin-bottom: 3px;
-    color: white;
-    margin-left: 22px;
-}
 .report-header {
     padding: 8px;
 }
 .sub-heading {
     display: flex;
+    margin: 24px;
     justify-content: space-between;
-    margin: 8px;
     gap: 12px;
 }
-.nav-item-list {
+.nav-bar-list {
     display: flex;
-    padding-left: 3rem;
-    padding-right: 3rem; 
     padding-top: 0.75rem;
+    padding-left: 3rem;
     padding-bottom: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    font-family: 'Ovo', serif;
+    padding-right: 3rem; 
     background-color: transparent;
     list-style: none;
     gap: 15px;
+    margin-top: 16px;
     font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.header {
+    display: flex;
+    margin-left: 22px;
+    gap: 2px;
+    align-items: end;
+    margin-bottom: 24px;
+    color: white;
 }
 .list-item a {
     color: white;
     text-decoration: none;
 }
-
-.nav-item-list .list-item a:hover {
+.social-media-icon {
+    display: flex;
+    margin-right: 35px;
+    gap: 11px;
+}
+.nav-bar-list .list-item a:hover {
     color: yellow;
 }
 .expense-report {
     width: 100%;
     border-collapse: collapse;
 }
-
-.add-expense {
-    margin-right: 95px;
-}
-
 th, td {
-    border: 1px solid black;
     padding: 8px; 
     text-align: center;
+}
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.add-expense {
+    background-color: #77CDFF;
+    border-radius: 100px;
+    box-shadow: rgba(43, 162, 202, 0.2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-right: 95px;
+}
+.add-expense:hover {
+    box-shadow: rgba(51, 129, 165, 0.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+.sidebar-popup {
+    position: fixed;
+    top:0 !important;
+}
+
+
+.sidebar-popup {
+    left:100% !important;
+    height:100% !important;
+    transition: transform .2s ease-in-out !important;
+    transform: translateX(100%);
+}
+
+.sidebar-popup.mx-window-active {
+    right: 0px !important;
+    left: auto !important;
+    transform: translateX(0);
+}
+
+.sidebar-popup.mx-window-active:not([data-focus-capturing="modal"]) {
+    left: 100% !important;
+    transform: translateX(100%);
+}
+
+.sidebar-popup .mx-window-header .close {
+    display: none;
+}
+
+.sidebar-popup .mx-resizer {
+    display: none;
 }
 
 .img-intro {
@@ -111,13 +170,12 @@ th, td {
 img {
     width: 100%;
 }
-
 .expense-form {
     border: 1px solid black;
     border-radius: 24px;
     display: grid;
-    justify-content: center;
     width: 37%;
+    justify-content: center;
     height: 30%;
     padding: 20px;
 }
@@ -135,7 +193,7 @@ input {
 
 .form-div {
     margin-top: 30px;
-    display: flex;
+    display: none;
     justify-content: center;
     margin-bottom: 10px;
 }
@@ -146,16 +204,6 @@ input {
     margin-top: 15px;
     padding: 10px;
 }
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -179,8 +227,8 @@ input {
     height: 287px;
 }
 
-.visuals {
-    margin-top: 8px;
+.js-charts {
+    margin-top: 14px;
     margin-bottom: 10px;
     display: grid;
     justify-content: center
